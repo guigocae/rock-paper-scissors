@@ -22,10 +22,50 @@
         function getHumanChoice() {
             let choice = prompt('Type "rock", "paper" or "scissors". What is your choice?');
             if(choice !== "rock" && choice !== "paper" && choice !== "scissors")
-                return 'Type only "rock", "paper" or "scissors"';
+                return 0;
             else
                 return choice;
         }
+
+        function playRound(humanChoice, computerChoice){
+            if(!humanChoice){
+                console.log('Type only "rock", "paper" or "scissors"');
+                return;
+            } 
+
+            if(humanChoice === computerChoice)
+                console.log("Draw!");
+            else if(humanChoice === "rock"){
+
+                if(computerChoice === "paper")
+                    console.log('You lose! Paper beats Rock');
+                else if(computerChoice === "scissors")
+                    console.log('You won! Rock beats Scissors');
+
+            } else if(humanChoice === "paper"){
+
+                if(computerChoice === "scissors")
+                    console.log('You lose! Scissors beats Paper');
+                else if(computerChoice === "rock")
+                    console.log('You won! Paper beats Rock');
+
+            } else if(humanChoice === "scissors"){
+
+                if(computerChoice === "rock")
+                    console.log('You lose! Rock beats Scissors');
+                else if(computerChoice === "paper")
+                    console.log('You won! Scissors beats Paper');
+
+            }
+        }
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+
+        playRound(humanChoice, computerChoice);
 
     </script>
 </body>
