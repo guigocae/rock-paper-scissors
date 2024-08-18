@@ -74,13 +74,15 @@
         function playGame() {
             let humanScore = 0;
             let computerScore = 0;
+            let count = 0;
             let result;
 
-            for(let i = 0; i < 5; i++){
+            while(count < 5){
                 result = playRound(getHumanChoice(), getComputerChoice());
 
                 if(result !== undefined){
                     result === 1 ? humanScore += 1 : computerScore += 1;
+                    count++
                 }
             }
             
