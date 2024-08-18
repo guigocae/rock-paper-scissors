@@ -37,35 +37,59 @@
                 console.log("Draw!");
             else if(humanChoice === "rock"){
 
-                if(computerChoice === "paper")
+                if(computerChoice === "paper"){
                     console.log('You lose! Paper beats Rock');
-                else if(computerChoice === "scissors")
+                    return 0;
+                }
+                else if(computerChoice === "scissors"){
                     console.log('You won! Rock beats Scissors');
+                    return 1;
+                }
 
             } else if(humanChoice === "paper"){
 
-                if(computerChoice === "scissors")
+                if(computerChoice === "scissors"){
                     console.log('You lose! Scissors beats Paper');
-                else if(computerChoice === "rock")
+                    return 0;
+                }
+                else if(computerChoice === "rock"){
                     console.log('You won! Paper beats Rock');
-
+                    return 1;
+                }
+                    
             } else if(humanChoice === "scissors"){
 
-                if(computerChoice === "rock")
+                if(computerChoice === "rock"){
                     console.log('You lose! Rock beats Scissors');
-                else if(computerChoice === "paper")
+                    return 0;
+                }
+                else if(computerChoice === "paper"){
                     console.log('You won! Scissors beats Paper');
+                    return 1;
+                }
 
             }
         }
 
-        let humanScore = 0;
-        let computerScore = 0;
+        function playGame() {
+            let humanScore = 0;
+            let computerScore = 0;
+            let result;
 
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
+            for(let i = 0; i < 5; i++){
+                result = playRound(getHumanChoice(), getComputerChoice());
 
-        playRound(humanChoice, computerChoice);
+                if(result !== undefined){
+                    result === 1 ? humanScore += 1 : computerScore += 1;
+                }
+            }
+            
+            humanScore > computerScore ? console.log("You won the game!") : console.log("Game Over!");
+            console.log(`Your score: ${humanScore} \nOpponent score: ${computerScore}`);
+            
+        }
+
+        playGame();
 
     </script>
 </body>
